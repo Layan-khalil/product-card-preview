@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+
+/* هون بعمل reset اي قيم بدائية للمارجن والبادنج عشان ما يصير اي خلل
+*/ 
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+:root{
+    --cream :hsl(30, 38%, 92%);
+    --dartcyan :hsl(158, 36%, 37%);
+    --darkblue:hsl(212, 21%, 14%);
+    --darkgrayishblue:hsl(228, 12%, 48%);
+    --white:hsl(0, 0%, 100%);
+}
+body{
+    font-family: 'Montserrat', sans-serif ;
+    
+    background:var(--cream);
+    min-height:100vh;
+    display:grid;
+    place-content: center; /*All body content placed in page center */
+}
+.product{
+    display:grid;
+    grid-template-columns: repeat(2 ,1fr);/*هاي معناها عندي عمودين وكل عمود عرضه fr1*/
+    max-width:600px;/*عرض المنتج كامل المكون من شقين صورة ومحنوى */
+    margin:1rem;
+}
+img , picture{
+    display:block;
+    max-width:100%;/*نص العرض تاع البرودكت النص يعني انه بياخد 300 بيكسل لانه مية بالمية)اي ان مية بالمية من ماكس ويدث تاع الصورة يساوي 300 بيكسلن )*/
+   /* max-width:300px; */ 
+   height:100%;
+
+}
+.product img{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.product-content{
+    background: var(--white);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding:2rem; /*نلاحظ بعد هذه الخطوة صار في خلل بارتفاعات الصورة وارتفاع المحتوى عشان هيك لازم اعمل reset في الاعلي
+}*/ 
+}
+.product .product-content .cat{
+    font-size:14px;
+    letter-spacing:4px;
+    color:var(--darkgrayishblue)
+}
+.product-content h1{
+  font-family:'Fraunces' , serif;
+  margin:20px 0;
+  line-height:1;
+  font-size:35px;
+  color:var(--darkblue);
+    
+}
+.product .product-content p{
+    color:var(--darkgrayishblue);
+    line-height: 1.5;
+    font-size:14px;
+}
+.product .product-content .price{
+    align-items:center; /*لو ما حطيت هاي كان طلع سعر العرض فوق السعر الاصلي لانهم مش نفس الحجم */
+    display:flex;
+    margin:30px 0;
+}
+.product .product-content .price .dis{
+    color:var(--dartcyan);
+    font-size:34px;
+    font-family:'Fraunces' , serif;
+}
+.product .product-content .price .orig{
+    padding:20px;
+
+}
+.product .product-content .btn{
+    background:var(--dartcyan);
+    border-radius:5px;
+    color:var(--white);
+   border:none;
+   padding:10px;
+   width:100%; /*عشان يوخد عرض العمود كامل */
+   font-weight:bold;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   cursor:pointer;
+}
+.product .product-content .btn:before{
+    content:'';
+    background:url("images/icon-cart.svg");
+    color:var(--white);
+    width:15px;
+    height:16px;
+    margin-right:10px;
+
+}
+ /*responsive*/
+ @media (max-width:700px)
+ {
+    .product{
+        grid-template-columns: 1fr;
+    }
+    .product img{
+        border-top-right-radius:10px;
+       border-bottom-left-radius:0;
+
+    }
+    .product-content{
+        border-top-right-radius:0;
+        border-bottom-left-radius:10px;
+    }
+    
+
+  
+ }
+
+
